@@ -1,9 +1,11 @@
 Test scenarios:
 
-### 001 match_list_shows_only_upcoming_matches
+### 001 Match List shows only upcoming matches
+
 This test validates that only upcoming matches are available for bet placement.
 
 #### Priority: Critical
+
 #### Risk Rationale:
 
 The risk behind this validation is critical because displaying expired, live-locked, suspended,
@@ -20,12 +22,13 @@ Expected Result:
 - Each match shows status "UPCOMING"
 - Matches with status "PAST" should not be visible on the list
 
-### 002 bet_slip_stake_validation
+### 002 Stake minimum and maximum limits validation
 
 This test validates stake amount boundaries to ensure users can place bets only within the allowed minimum and maximum
 limits.
 
 #### Priority: High
+
 #### Risk Rationale:
 
 Stake validation is considered a high-risk area because incorrect handling of betting limits may lead to financial loss,
@@ -44,12 +47,13 @@ Expected result:
 
 Steps:
 
-### 003 single_bet_placement_for_upcoming_match
+### 003 Single Bet Placement for upcoming match
+
 This test verifies that a user can successfully place a single bet on an upcoming football match
 using valid betting selections and stake values.
 
-
 #### Priority: Critical
+
 #### Risk Rationale:
 
 Single bet placement is a high-risk and business-critical workflow,
@@ -77,7 +81,7 @@ Expected Result:
   Placement timestamp
 - User Balance value is reduced for the applied stake value.
 
-### 004 test_rebet_single_placement_on_error
+### 004 Error Handling by Rebet action
 
 This test validates the rebet functionality in error-handling scenarios,
 ensuring users can successfully retry a failed single bet placement action
@@ -98,30 +102,37 @@ wallet synchronization, backend stability, and user trust.
 4. Open devtool browser console to change throttling settings in Network tab
 5. Choose Offline mode in throttling dropdown menu
 6. Click Place Bet
-error model dialog appears: Something went wrong
-available options: Rebet; Close
+   error model dialog appears: Something went wrong
+   available options: Rebet; Close
 
 7. Enable network full speed by choosing No throttling in Network settings
 8. Click Rebet
 
 #### Expected result:
+
 - Bet placed successfully!
 - Rebet is error handling action which allows user to retry failed request for Place Bet action.
 
-### 005 filter_matches_by_date_and_odds_range
+### 005 Filter matches by date and odds range
+
 This test validates match filtering by date range and odds.
+
 #### Priority: Medium
+
 #### Risk Rationale:
-This area is risk-sensitive because incorrect filtering may show unavailable, irrelevant, 
+
+This area is risk-sensitive because incorrect filtering may show unavailable, irrelevant,
 or financially incorrect betting options, which can directly affect user decision-making,
 bet placement accuracy, and business revenue.
 
 #### Steps:
+
 1. Navigate to Upcoming Football Matches list
 2. Filter matches between May 17th and May 31st; choose this date range from data filter popover
 3. Open Odds Filter popover to set min value on 3,30; then apply the filter settings
 
 #### Expected result:
+
 - Upcoming Football Matches list shows only filtered match: Marseille - Monaco
 
 
