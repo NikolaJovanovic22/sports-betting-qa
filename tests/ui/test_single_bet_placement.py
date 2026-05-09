@@ -2,7 +2,7 @@ from decimal import Decimal
 
 import allure
 
-from utils import config
+import config
 from pages.sports_betting_page import SportsBettingPage
 
 
