@@ -2,7 +2,7 @@ import allure
 
 
 @allure.title("API test - base actions and validation")
-def test_api_validation(betting_api):
+def test_api_sports_betting(betting_api):
     with allure.step("GET: all matches"):
         matches_response = betting_api.get_matches()
         matches_response.assert_status(200)

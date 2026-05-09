@@ -589,7 +589,7 @@ def test_single_bet_placement(driver):
 # Example API Test
 
 ```python
-def test_api_validation(betting_api):
+def test_api_sports_betting(betting_api):
     matches = betting_api.get_matches()
 
     matches.assert_status(200)
@@ -607,7 +607,7 @@ Recommended:
 ## Tests
 
 ```text
-test_api_validation.py
+test_api_sports_betting.py
 test_single_bet_placement.py
 ```
 
