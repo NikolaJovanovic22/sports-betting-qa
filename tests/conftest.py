@@ -15,19 +15,6 @@ def driver(request):
     driver.maximize_window()
     yield driver
 
-    # if request.node.rep_call.failed:
-    #     # Attach screenshot
-    #     allure.attach(
-    #         driver.get_screenshot_as_png(),
-    #         name="screenshot",
-    #         attachment_type=allure.attachment_type.PNG
-    #     )
-    #     # Attach page source
-    #     allure.attach(
-    #         driver.page_source,
-    #         name="page_source",
-    #         attachment_type=allure.attachment_type.HTML
-    #     )
     driver.quit()
 
 
@@ -36,23 +23,23 @@ def api():
     return api_client.ApiClient(base_url=config.API_URL)
 
 
-# Hook for attaching screenshots on failure
 @pytest.hookimpl(hookwrapper=True)
-def pytest_runtest_makereport(item, call):
+def pytest_runtest_makereport(item):
     outcome = yield
-    result = outcome.get_result()
+    report = outcome.get_result()
 
-    if result.when == "call" and result.failed:
-        driver = item.funcargs.get("driver")
-        if driver:
-            allure.attach(
-                driver.get_screenshot_as_png(),
-                name=f"Failure Screenshot - {item.name}",
-                attachment_type=allure.attachment_type.PNG
-            )
-            # Attach page source
-            allure.attach(
-                driver.page_source,
-                name="page_source",
-                attachment_type=allure.attachment_type.HTML
-            )
+    setattr(item, f"rep_{report.when}", report)
+
+
+@pytest.fixture(autouse=True)
+def screenshot_on_failure(request, driver):
+    yield
+
+    if request.node.rep_call.failed:
+        screenshot = driver.get_screenshot_as_png()
+
+        allure.attach(
+            screenshot,
+            name="Screenshot on Failure",
+            attachment_type=allure.attachment_type.PNG
+        )

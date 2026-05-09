@@ -1,4 +1,7 @@
-from locators.bet_slip_locators import BetSlipLocators
+import re
+from decimal import Decimal
+
+from locators.header_locators import HeaderLocators
 from locators.match_list_locators import MatchListLocators
 from locators.locator_builder import LocatorBuilder
 from pages.base_page import BasePage
@@ -11,8 +14,26 @@ class SportsBettingPage(BasePage):
     def open(self, base_url):
         self.driver.get(f"{base_url}")
 
-    def wait_for_spinner_to_disappear(self):
-        self.wait_for_loading_to_disappear(MatchListLocators.SPINNER, 10)
+    def reload_page(self):
+        self.refresh_page()
+        self.wait_for_spinner_to_disappear()
+
+
+    # ------------- Header -------------------
+    def get_balance(self):
+        balance_text = self.get_text(HeaderLocators.WALLET_BALANCE_TEXT)
+        amount = Decimal(re.search(r"[\d.]+", balance_text).group())
+        return amount
+
+    def get_deducted_balance(self, initial_balance: Decimal, stake: Decimal):
+        deducted_balance = initial_balance - stake
+        return deducted_balance
+
+    def assert_balance(self, expected_balance: Decimal):
+        actual_balance = self.get_balance()
+        assert self.get_balance() == expected_balance, (
+            f"Balance assertion failed! Expected: '{expected_balance}', Got: '{actual_balance}'"
+        )
 
     # ------------- Match List -------------------
     def scroll_to_match(self, home_team, away_team):
@@ -23,6 +44,9 @@ class SportsBettingPage(BasePage):
         )
         match = self.scroll_to_element(locator)
         return match
+
+    def wait_for_spinner_to_disappear(self):
+        self.wait_for_loading_to_disappear(MatchListLocators.SPINNER, 10)
 
     def __select_match_odds(self, home_team, away_team, odds_button):
         # Locators initialization
@@ -44,45 +68,13 @@ class SportsBettingPage(BasePage):
         self.find_visible(odds_locator)
         self.click(odds_locator)
 
-    def select_home_odds_for_match(self, home_team, away_team):
+    def select_home_odds_for_betting(self, home_team, away_team):
         self.__select_match_odds(home_team, away_team, "home")
+        from pages.bet_slip_page import BetSlipPage
+        return BetSlipPage(self.driver)
 
     def select_away_odds_for_match(self, home_team, away_team):
         self.__select_match_odds(home_team, away_team, "away")
 
     def select_draw_odds_for_match(self, home_team, away_team):
         self.__select_match_odds(home_team, away_team, "draw")
-
-    # ------------ Bet Slip ------------
-    def assert_bet_selection_teams(self, teams):
-        self.assert_text(BetSlipLocators.BET_SELECTION_TEAMS, teams)
-
-    def assert_bet_selection_market(self, winner):
-        self.assert_text(BetSlipLocators.BET_SELECTION_MARKET, "Match Winner: ".join(winner))
-
-    def assert_bet_odds(self, odds):
-        self.assert_text(BetSlipLocators.BET_SELECTION_ODDS, odds)
-
-    def type_stake_value(self, stake):
-        self.type(BetSlipLocators.STAKE_INPUT, stake)
-        self.assert_attribute_value(BetSlipLocators.STAKE_INPUT, "value", stake)
-
-    def assert_total_stake_value(self, total_stake):
-        self.assert_text(BetSlipLocators.TOTAL_STAKE_VALUE, total_stake)
-
-    def assert_potential_payout_value(self, potential_payout):
-        self.assert_text(BetSlipLocators.POTENTIAL_PAYOUT_VALUE, potential_payout)
-
-    def assert_potential_payout_inactive(self, ):
-        self.assert_attribute_value(BetSlipLocators.POTENTIAL_PAYOUT_VALUE,
-                                    "class", "payoutInactive")
-
-    def assert_potential_payout_green(self, ):
-        self.assert_attribute_value(BetSlipLocators.POTENTIAL_PAYOUT_VALUE,
-                                    "class", "payoutGreen")
-
-    def place_bet(self):
-        self.click(BetSlipLocators.PLACE_BET_BUTTON)
-
-    def assert_place_bet_button_disabled(self):
-        self.assert_disabled(BetSlipLocators.PLACE_BET_BUTTON)

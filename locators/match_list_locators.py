@@ -1,7 +1,5 @@
 from selenium.webdriver.common.by import By
 
-from locators.locator_builder import Locator
-
 
 class MatchListLocators:
     SPINNER = (By.CSS_SELECTOR, ".matchListSpinner")

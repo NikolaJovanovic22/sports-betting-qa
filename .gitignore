@@ -1,0 +1,132 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.so
+
+# Distribution / packaging
+build/
+dist/
+.eggs/
+*.egg-info/
+*.egg
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage
+htmlcov/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# Type checkers
+.mypy_cache/
+.pyre/
+.pytype/
+
+# =========================
+# Virtual environments
+# =========================
+venv/
+.venv/
+env/
+ENV/
+virtualenv/
+
+# =========================
+# IDE / Editor
+# =========================
+.idea/
+.vscode/
+*.iml
+
+# PyCharm
+.idea_modules/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# =========================
+# Selenium / Test Artifacts
+# =========================
+screenshots/
+downloads/
+videos/
+artifacts/
+test-output/
+reports/
+logs/
+debug/
+recordings/
+
+*.log
+*.tmp
+
+# Selenium Grid / Docker temp
+selenium_data/
+tmp/
+temp/
+
+# =========================
+# Allure
+# =========================
+allure-results/
+allure-report/
+
+# =========================
+# Environment / Secrets
+# =========================
+.env
+.env.*
+*.env
+
+# Config overrides
+config/local.py
+config/secrets.py
+config/*.local.yaml
+config/*.local.yml
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# Docker
+# =========================
+docker-compose.override.yml
+
+# Docker temp/cache
+*.pid
+
+# =========================
+# Browser Drivers
+# =========================
+chromedriver
+chromedriver.exe
+geckodriver
+geckodriver.exe
+msedgedriver
+msedgedriver.exe
+
+# =========================
+# OS generated
+# =========================
+*.swp
+*.swo
+*~

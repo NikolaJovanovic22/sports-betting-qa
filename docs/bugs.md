@@ -15,7 +15,7 @@ Finished matches for betting may lead to invalid bet submissions, financial inco
 regulatory violations, and poor user experience.
 - It’s possible to make a single bet placement for past matches, no failure outcome.
 ##### Evidence: 
-![bug_past_matches.png](screenshots/bug_past_matches.png)
+![bug_past_matches.png](../screenshots/bug_past_matches.png)
 
 ## bug_002: Kickoff date/time label is not displayed for upcoming matches
 #### Severity: Medium
@@ -34,7 +34,7 @@ regulatory violations, and poor user experience.
 The missing kickoff date/time label may negatively impact user experience, and betting activity because user cannot
 clearly determine when an event starts.
 ##### Evidence:
-![bug_kickoff_time_label.png](screenshots/bug_kickoff_time_label.png)
+![bug_kickoff_time_label.png](../screenshots/bug_kickoff_time_label.png)
 
 
 # 2.3 Place Bet Interaction
@@ -57,7 +57,7 @@ clearly determine when an event starts.
 This is trust-related problem because the displayed balance becomes temporarily inconsistent
 with the actual betting transaction state.
 ##### Evidence:
-![bug_wallet_balance.png](screenshots/bug_wallet_balance.png)
+![bug_wallet_balance.png](../screenshots/bug_wallet_balance.png)
 
 # 2.4 Success Receipt:
 ## bug_004: Incorrect Potential Payout
@@ -77,7 +77,7 @@ with the actual betting transaction state.
 The issue where the potential payout is calculated incorrectly during bet placement is considered critical because
 it directly affects financial transparency, user trust, betting decisions, and regulatory compliance.
 ##### Evidence:
-![bug_potential_payout.png](screenshots/bug_potential_payout.png)
+![bug_potential_payout.png](../screenshots/bug_potential_payout.png)
 
 
 # 2.6 Filters
@@ -100,8 +100,8 @@ The issue where the odds filter does not support an inclusive minimum range
 may cause users to miss valid betting opportunities that exactly match the selected minimum odds value.
 
 ##### Evidence:
-![bug_odds_filter_1.png](screenshots/bug_odds_filter_1.png)
-![bug_odds_filter_2.png](screenshots/bug_odds_filter_2.png)
+![bug_odds_filter_1.png](../screenshots/bug_odds_filter_1.png)
+![bug_odds_filter_2.png](../screenshots/bug_odds_filter_2.png)
 
 
  

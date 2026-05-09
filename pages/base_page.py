@@ -1,6 +1,7 @@
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as expectedCondition
+from datetime import datetime
 
 
 class BasePage:
@@ -8,6 +9,7 @@ class BasePage:
         self.driver = driver
         self.wait = WebDriverWait(driver, timeout)
 
+    # ----------- Utils -------------
     def _resolve_element(self, target):
         """
         Resolve locator tuple or WebElement into WebElement.
@@ -16,6 +18,12 @@ class BasePage:
             return target
 
         return self.driver.find_element(*target)
+
+    def get_current_time_hhmm(self):
+        return datetime.now().strftime("%H:%M")
+
+    def refresh_page(self):
+        self.driver.refresh()
 
     # ---------- Element Finders ----------
     def find(self, locator):
