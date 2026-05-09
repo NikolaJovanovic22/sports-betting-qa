@@ -28,7 +28,7 @@ regulatory violations, and poor user experience.
 
 ##### Evidence:
 
-![bug_past_matches.png](../screenshots/bug_past_matches.png)
+![bug_past_matches.png](evidence/bug_past_matches.png)
 
 ## bug_002: Kickoff date/time label is not displayed for upcoming matches
 
@@ -58,7 +58,7 @@ clearly determine when an event starts.
 
 ##### Evidence:
 
-![bug_kickoff_time_label.png](../screenshots/bug_kickoff_time_label.png)
+![bug_kickoff_time_label.png](evidence/bug_kickoff_time_label.png)
 
 # 2.3 Place Bet Interaction
 
@@ -91,7 +91,7 @@ with the actual betting transaction state.
 
 ##### Evidence:
 
-![bug_wallet_balance.png](../screenshots/bug_wallet_balance.png)
+![bug_wallet_balance.png](evidence/bug_wallet_balance.png)
 
 # 2.4 Success Receipt:
 
@@ -122,7 +122,7 @@ it directly affects financial transparency, user trust, betting decisions, and r
 
 ##### Evidence:
 
-![bug_potential_payout.png](../screenshots/bug_potential_payout.png)
+![bug_potential_payout.png](evidence/bug_potential_payout.png)
 
 # 2.6 Filters
 
@@ -154,8 +154,8 @@ may cause users to miss valid betting opportunities that exactly match the selec
 
 ##### Evidence:
 
-![bug_odds_filter_1.png](../screenshots/bug_odds_filter_1.png)
-![bug_odds_filter_2.png](../screenshots/bug_odds_filter_2.png)
+![bug_odds_filter_1.png](evidence/bug_odds_filter_1.png)
+![bug_odds_filter_2.png](evidence/bug_odds_filter_2.png)
 
 - Odds filter range: min range can be higher than max, missing validation of this inconsistency
 
@@ -183,7 +183,7 @@ may cause users to miss valid betting opportunities that exactly match the selec
 }
 ```
 
-![bug_balance_inconsistency.png](../screenshots/bug_balance_inconsistency.png)
+![bug_balance_inconsistency.png](evidence/bug_balance_inconsistency.png)
 
 #### Expected result:
 
@@ -213,7 +213,7 @@ but does not directly affect actual wallet funds or transaction integrity.
 - Currency property value: EUR
 
 ##### Evidence:
-![bug_currency.png](../screenshots/bug_currency.png)
+![bug_currency.png](evidence/bug_currency.png)
 
 
 
