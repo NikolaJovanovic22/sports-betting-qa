@@ -46,5 +46,4 @@ class BetPlacedPage(BasePage):
     def close(self) -> SportsBettingPage:
         self.click(BetPlacedLocators.BUTTON_CLOSE)
         self.find_modal_dialog_is_not_visible()
-        from pages.sports_betting_page import SportsBettingPage
         return SportsBettingPage(self.driver)

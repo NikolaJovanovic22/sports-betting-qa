@@ -5,6 +5,7 @@ from locators.header_locators import HeaderLocators
 from locators.match_list_locators import MatchListLocators
 from locators.locator_builder import LocatorBuilder
 from pages.base_page import BasePage
+from pages.bet_slip_page import BetSlipPage
 
 
 class SportsBettingPage(BasePage):
@@ -68,9 +69,8 @@ class SportsBettingPage(BasePage):
         self.find_visible(odds_locator)
         self.click(odds_locator)
 
-    def select_home_odds_for_betting(self, home_team, away_team):
+    def select_home_odds_for_betting(self, home_team, away_team) -> BetSlipPage:
         self.__select_match_odds(home_team, away_team, "home")
-        from pages.bet_slip_page import BetSlipPage
         return BetSlipPage(self.driver)
 
     def select_away_odds_for_match(self, home_team, away_team):
