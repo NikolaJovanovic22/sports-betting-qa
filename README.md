@@ -1,6 +1,7 @@
 # Python QA Automation Framework
 
-Enterprise-grade hybrid automation framework for **UI and API testing**, built with **Python, Selenium WebDriver, Pytest, Requests, and Allure Reporting**.
+Enterprise-grade hybrid automation framework for **UI and API testing**, built with **Python, Selenium WebDriver,
+Pytest, Requests, and Allure Reporting**.
 
 Designed for scalability, maintainability, and clean test architecture.
 
@@ -27,19 +28,19 @@ The framework is built to support modern QA engineering practices and enterprise
 
 # Tech Stack
 
-| Area | Technology |
-|------|------------|
-| Language | Python 3.10+ |
-| Test Runner | Pytest |
-| UI Automation | Selenium WebDriver |
-| API Testing | Requests |
-| Reporting | Allure |
-| Assertions | Pytest |
-| Browser Support | Chrome, Firefox |
-| Design Pattern | Page Object Model |
-| API Pattern | Response Object / DTO |
-| Config Management | Python config module |
-| CI/CD Ready | Yes |
+| Area              | Technology            |
+|-------------------|-----------------------|
+| Language          | Python 3.10+          |
+| Test Runner       | Pytest                |
+| UI Automation     | Selenium WebDriver    |
+| API Testing       | Requests              |
+| Reporting         | Allure                |
+| Assertions        | Pytest                |
+| Browser Support   | Chrome, Firefox       |
+| Design Pattern    | Page Object Model     |
+| API Pattern       | Response Object / DTO |
+| Config Management | Python config module  |
+| CI/CD Ready       | Yes                   |
 
 ---
 
@@ -371,28 +372,20 @@ Example:
 
 ```python
 locator = LocatorBuilder.build(
-            MatchListLocators.MATCH_CARD_BY_TEAMS,
-            home_team=home_team,
-            away_team=away_team
-        )
+    MatchListLocators.MATCH_CARD_BY_TEAMS,
+    home_team=home_team,
+    away_team=away_team
+)
 ```
 
 Appending child locator:
 
 ```python
-final_locator = LocatorBuilder.append_xpath(
+odds_locator = LocatorBuilder.append_xpath(
     match_locator,
-    odds_locator
+    odds_btn_locator
 )
 ```
-
-Generated XPath:
-
-```text
-//match-card//button[text()='2.35']
-```
-
----
 
 # API Framework Design
 
