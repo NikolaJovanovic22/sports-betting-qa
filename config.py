@@ -1,4 +1,4 @@
-SPORTS_BETTING_URL = "https://qae-assignment-tau.vercel.app/?user-id=candidate-T2qLm8Ys4C"
+SPORTS_BETTING_URL = "https://qae-assignment-tau.vercel.app/?user-id=your-user-id"
 API_URL = "https://qae-assignment-tau.vercel.app/api"
 BROWSER = "chrome"
-USER_ID = "candidate-T2qLm8Ys4C"
+USER_ID = "<your-user-id>"
