@@ -52,17 +52,6 @@ class BaseApiClient:
 
         return final_headers
 
-    # def _set_headers(self, headers: Optional[dict] = None) -> dict:
-    #     """
-    #     Merging default headers with custom headers.
-    #     """
-    #     final_headers = self.DEFAULT_HEADERS.copy()
-    #
-    #     if headers:
-    #         final_headers.update(headers)
-    #
-    #     return final_headers
-
     @retry(stop=stop_after_attempt(3),
            wait=wait_exponential(multiplier=1, min=2, max=8))
     def _request(self, method: str, endpoint: str, **kwargs
@@ -71,9 +60,6 @@ class BaseApiClient:
         # build URL
         url = self._build_url(endpoint)
         logger.info(f"{method.upper()} {url}")
-
-        # headers conditions, apply default headers
-        # headers = self._set_headers(headers={"x-user-id": "candidate-T2qLm8Ys4C"})
 
         # logging json payload
         logger.info(f"Payload: {kwargs.get('data')}")
